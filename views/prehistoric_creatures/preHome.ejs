@@ -1,0 +1,16 @@
+<form action="/prehistoric_creatures" method="GET">
+    <label for="nameFilter">Filter By Name</label>
+    <input type="text" name="nameFilter" id="nameFilter">
+    <input type="submit">
+</form>
+
+<ul>
+    <% preData.forEach((dino, index) => { %>
+        <li>
+            <%= dino.type %> is a <img src="<%= dino.img_url %>">
+            <form action="/prehistoric_creatures/<%= index %>/?_method=DELETE" method="POST">
+                <input type="submit" value="Delete">
+            </form>
+        </li>
+    <% }) %>
+</ul>
